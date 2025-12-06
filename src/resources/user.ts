@@ -36,15 +36,15 @@ export class UserResource extends APIResource {
    *
    * @example
    * ```ts
-   * await client.user.update('username');
+   * await client.user.update('username', {
+   *   nickName: 'nickName',
+   * });
    * ```
    */
-  update(
-    pathUsername: string,
-    body: UserUpdateParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<void> {
+  update(pathUsername: string, params: UserUpdateParams, options?: RequestOptions): APIPromise<void> {
+    const { nickName, ...body } = params;
     return this._client.put(path`/user/${pathUsername}`, {
+      query: { nickName },
       body,
       ...options,
       headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
@@ -155,22 +155,48 @@ export interface UserCreateParams {
 }
 
 export interface UserUpdateParams {
+  /**
+   * Query param: nickName that need to be updated
+   */
+  nickName: string;
+
+  /**
+   * Body param:
+   */
   id?: number;
 
+  /**
+   * Body param:
+   */
   email?: string;
 
+  /**
+   * Body param:
+   */
   firstName?: string;
 
+  /**
+   * Body param:
+   */
   lastName?: string;
 
+  /**
+   * Body param:
+   */
   password?: string;
 
+  /**
+   * Body param:
+   */
   phone?: string;
 
+  /**
+   * Body param:
+   */
   body_username?: string;
 
   /**
-   * User Status
+   * Body param: User Status
    */
   userStatus?: number;
 }
