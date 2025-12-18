@@ -35,7 +35,10 @@ export async function codeTool() {
       headers: {
         ...(stainlessAPIKey && { Authorization: stainlessAPIKey }),
         'Content-Type': 'application/json',
-        client_envs: JSON.stringify({ PET_TEST_126_API_KEY: readEnv('PET_TEST_126_API_KEY') }),
+        client_envs: JSON.stringify({
+          PET_TEST_126_API_KEY: readEnv('PET_TEST_126_API_KEY'),
+          PET_TEST_126_BASE_URL: readEnv('PET_TEST_126_BASE_URL'),
+        }),
       },
       body: JSON.stringify({
         project_name: 'pet-test-126',
