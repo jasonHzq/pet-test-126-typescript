@@ -161,37 +161,37 @@ export interface UserUpdateParams {
   query_firstName: string;
 
   /**
-   * Body param:
+   * Body param
    */
   id?: number;
 
   /**
-   * Body param:
+   * Body param
    */
   email?: string;
 
   /**
-   * Body param:
+   * Body param
    */
   body_firstName?: string;
 
   /**
-   * Body param:
+   * Body param
    */
   lastName?: string;
 
   /**
-   * Body param:
+   * Body param
    */
   password?: string;
 
   /**
-   * Body param:
+   * Body param
    */
   phone?: string;
 
   /**
-   * Body param:
+   * Body param
    */
   body_username?: string;
 
