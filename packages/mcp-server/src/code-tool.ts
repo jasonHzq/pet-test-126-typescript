@@ -4,6 +4,7 @@ import { McpTool, Metadata, ToolCallResult, asErrorResult, asTextContentResult }
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import { readEnv } from './server';
 import { WorkerInput, WorkerOutput } from './code-tool-types';
+import { PetTest126 } from 'pet-test-126';
 
 const prompt = `Runs JavaScript code to interact with the Pet Test 126 API.
 
@@ -54,7 +55,7 @@ export function codeTool(): McpTool {
       required: ['code'],
     },
   };
-  const handler = async (_: unknown, args: any): Promise<ToolCallResult> => {
+  const handler = async (client: PetTest126, args: any): Promise<ToolCallResult> => {
     const code = args.code as string;
     const intent = args.intent as string | undefined;
 
@@ -70,8 +71,8 @@ export function codeTool(): McpTool {
         ...(stainlessAPIKey && { Authorization: stainlessAPIKey }),
         'Content-Type': 'application/json',
         client_envs: JSON.stringify({
-          PET_TEST_126_API_KEY: readEnv('PET_TEST_126_API_KEY'),
-          PET_TEST_126_BASE_URL: readEnv('PET_TEST_126_BASE_URL'),
+          PET_TEST_126_API_KEY: readEnv('PET_TEST_126_API_KEY') ?? client.apiKey ?? undefined,
+          PET_TEST_126_BASE_URL: readEnv('PET_TEST_126_BASE_URL') ?? client.baseURL ?? undefined,
         }),
       },
       body: JSON.stringify({
