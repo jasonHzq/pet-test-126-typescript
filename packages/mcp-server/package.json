@@ -1,6 +1,6 @@
 {
   "name": "pet-test-126-mcp",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "The official MCP Server for the Pet Test 126 API",
   "author": "Pet Test 126 <apiteam@swagger.io>",
   "types": "dist/index.d.ts",
