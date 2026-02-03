@@ -53,8 +53,8 @@ describe('resource user', () => {
   });
 
   // Prism tests are disabled
-  test.skip('update', async () => {
-    const responsePromise = client.user.update('username');
+  test.skip('update: only required params', async () => {
+    const responsePromise = client.user.update('username', { query_firstName: 'firstName' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -65,24 +65,18 @@ describe('resource user', () => {
   });
 
   // Prism tests are disabled
-  test.skip('update: request options and params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(
-      client.user.update(
-        'username',
-        {
-          id: 10,
-          email: 'john@email.com',
-          firstName: 'John',
-          lastName: 'James',
-          password: '12345',
-          phone: '12345',
-          body_username: 'theUser',
-          userStatus: 1,
-        },
-        { path: '/_stainless_unknown_path' },
-      ),
-    ).rejects.toThrow(PetTest126.NotFoundError);
+  test.skip('update: required and optional params', async () => {
+    const response = await client.user.update('username', {
+      query_firstName: 'firstName',
+      id: 10,
+      email: 'john@email.com',
+      body_firstName: 'John',
+      lastName: 'James',
+      password: '12345',
+      phone: '12345',
+      body_username: 'theUser',
+      userStatus: 1,
+    });
   });
 
   // Prism tests are disabled

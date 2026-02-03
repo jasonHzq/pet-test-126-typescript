@@ -1,0 +1,43 @@
+{
+  "dxt_version": "0.2",
+  "name": "pet-test-126-mcp",
+  "version": "0.0.1",
+  "description": "The official MCP Server for the Pet Test 126 API",
+  "author": {
+    "name": "Pet Test 126",
+    "email": "apiteam@swagger.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonHzq/pet-test-126-typescript.git"
+  },
+  "homepage": "https://github.com/jasonHzq/pet-test-126-typescript/tree/main/packages/mcp-server#readme",
+  "documentation": "https://swagger.io",
+  "server": {
+    "type": "node",
+    "entry_point": "index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/index.js"],
+      "env": {
+        "PET_TEST_126_API_KEY": "${user_config.PET_TEST_126_API_KEY}"
+      }
+    }
+  },
+  "user_config": {
+    "PET_TEST_126_API_KEY": {
+      "title": "api_key",
+      "description": "",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "tools": [],
+  "tools_generated": true,
+  "compatibility": {
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  },
+  "keywords": ["api"]
+}

@@ -1,12 +1,12 @@
 {
   "name": "pet-test-126",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "The official TypeScript library for the Pet Test 126 API",
   "author": "Pet Test 126 <apiteam@swagger.io>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",
-  "repository": "github:stainless-sdks/pet-test-126-typescript",
+  "repository": "github:jasonHzq/pet-test-126-typescript",
   "license": "Apache-2.0",
   "packageManager": "pnpm@10.24.0",
   "files": [
